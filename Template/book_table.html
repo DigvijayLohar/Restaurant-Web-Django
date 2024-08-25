@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block class %}class="sub_page"{% endblock class %}
+{% block main %}
+ <!-- book section -->
+ <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Book A Table
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url "book_table" %}" method='POST'>{% csrf_token %}
+              <div>
+                <input type="text" class="form-control" id="name" Name="name" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" class="form-control" id="number" Name="number" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" class="form-control" id="email" Name="email" placeholder="Your Email" />
+              </div>
+              <div>
+                <select class="form-control nice-select wide" id="person" Name="person">
+                  <option value="1" placeholder="How many persons?">
+                    1
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                </select>
+              </div>
+              <div>
+                <input type="date" class="form-control" id="date" Name="date"> 
+              </div>
+              <div class="btn_box">
+                <button>
+                  Book Now
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container ">
+            <div id="googleMap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end book section -->
+{% endblock main %}

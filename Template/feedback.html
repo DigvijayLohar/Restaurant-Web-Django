@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block class %}class="sub_page"{% endblock class %}
+{% block feedback_status %}active{% endblock feedback_status %}
+{% block main %}
+
+  <!-- start feedback form -->
+
+  <section class="book_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Book A Table
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <form action="{% url 'feedback' %}" method='POST' enctype="multipart/form-data">{% csrf_token %}
+              <div>
+                <input type="text" class="form-control" name="user_name" required placeholder="Your Name" />
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="Description" rows="4" required placeholder="Describe your experience here">
+
+                </textarea>
+                
+              </div>
+              <div>
+                <select class="form-control nice-select wide" required name="Rating">
+                  <option value="" disabled selected>
+                    Please Give Us Rating?
+                  </option>
+                  <option value="1">
+                    1
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                  <option value="4">
+                    4
+                  </option>
+                  <option value="5">
+                    5
+                  </option>
+                </select>
+              </div>
+              <div>
+                <label for="formFileLg" class="form-label">Select Image</label>
+                <input class="form-control form-control-lg" id="formFileLg" type="file" name="Image">
+              </div>
+              <div class="btn_box">
+                <button>
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end feedback form -->
+
+{% endblock main %}
